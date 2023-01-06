@@ -83,3 +83,26 @@ answer.appendChild(answerEl);
 
 // }
 // )
+
+
+
+
+
+
+
+
+
+
+
+
+// function setTime() {
+    // timerInterval = setInterval(function() {
+        // secondsLeft--;
+        // timerCountdown.textContent = "Timer:" + secondsLeft
+   /     if(secondsLeft === 0) {
+            // Stops execution of action at set interval
+            // clearInterval(timerInterval);
+            // endGame();
+        // };
+ //   }, 1000);
+// };
