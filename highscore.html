@@ -11,8 +11,11 @@
 <body>
     
 <h1>
-    highscore
+    Highscores
 </h1>
+<div id="initial-box">
+
+</div>
 
 
 
@@ -22,8 +25,39 @@ const urlParams = new URLSearchParams(window.location.search);
 const score = urlParams.get("score");
 console.log(score);
 
-</script>
 
+displayHighScore();
+
+
+
+
+function displayHighScore (){
+var initials = prompt("Please enter your initials.");
+localStorage.setItem("initials", initials);
+localStorage.setItem("score", score);
+var userList = localStorage.getItem("userList");
+var scorePage = document.getElementById("#initial-box");
+var scorePageEl = document.createElement("div");
+
+// localStorage.setItem("userList", JSON.stringify(userList));
+ };
+
+
+if (userList === undefined || userList === null) {
+        userList = {[initials]: score};
+        localStorage.setItem("userList", JSON.stringify(userList));
+        document.getElementById("#initial-box").textContent = userList
+        
+    }
+    else {
+        var userListJSON = JSON.parse(userList);
+        userListJSON[initials] = score;
+        localStorage.setItem("userList", JSON.stringify(userListJSON));
+    }
+    var getUserList = localStorage.getItem('userList');
+    console.log(getUserList);
+
+</script>
 
 </html>
 

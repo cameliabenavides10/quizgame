@@ -1,6 +1,6 @@
 var score = document.querySelector(".score");
-var scoreEl = document.createElement("div");
-scoreEl.textContent = "Highscore";
+var scoreEl = document.createElement("a");
+scoreEl.textContent = "View Highscores";
 score.append(scoreEl);
 
 var secsLong = 60;
@@ -9,10 +9,9 @@ var timer = document.querySelector(".timer");
 // you create somewhere to put it
 var timerEl = document.createElement("div");
 // you set what you want the content to say
-timerEl.textContent = "Timer:" + secsLong;
+timerEl.textContent = "Timer: " + secsLong;
 // you attach what you created to the part of the document you selected
 timer.append(timerEl);
-
 
 
 
@@ -37,7 +36,6 @@ var quizContent = [
 
     }
 ]
-
 
 
 
