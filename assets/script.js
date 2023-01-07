@@ -109,19 +109,18 @@ function setTime() {
 
 
 
- var initials = prompt("Please enter your initials.");
- var getInitials= localStorage.setItem("initials", initials);
- localStorage.setItem("score", score);
- var userList = localStorage.getItem("userList");
 
+
+ const urlParams = new URLSearchParams(window.location.search);
+ let userInitials = urlParams.get("userInitials");
 
 
  function saveScore() {
     var playerName = document.getElementById("initial-box").value;
-    //localStorage.setItem(playerName, secondsLeft);
+    // localStorage.setItem(playerName, secondsLeft);
     var userList = localStorage.getItem("userList");
     if (userList === undefined || userList === null) {  
-        userList = {[playerName]: secsLong};
+        userList = [{name: playerName, score: secsLong}];
         localStorage.setItem("userList", JSON.stringify(userList));
     }
     else {
@@ -131,6 +130,3 @@ function setTime() {
     }
     
  }
-//  promt:enter INitials
-// save initials to local storage and score. 
-// retireve from local storgae and display the scores using a for loop. 

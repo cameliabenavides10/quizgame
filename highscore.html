@@ -23,26 +23,28 @@
 <script>
 const urlParams = new URLSearchParams(window.location.search);
 const score = urlParams.get("score");
+
 console.log(score);
 
 
+var userInitials = localStorage.getItem("userInitials");
+    userInitials = prompt("Please enter user Initials");
+    localStorage.setItem("userInitials", userInitials);
 
-var initials = prompt("Please enter your initials.");
- localStorage.setItem("initials", initials);
  localStorage.setItem("score", score);
  var userList = localStorage.getItem("userList");
- console.log(userList);
+ console.log(userInitials);
 
 
-var scoreList = document.getElementById("initial-box");
-        var userListJSON = JSON.parse(localStorage.getItem("userList"));
-        for (var property in userListJSON) {
-        
-        var userScore = document.createElement("div");
-        userScore.textContent =  property + ": " + userListJSON[property];
+ var theScores ={
+    initials: userInitials,
+    scores: score
+ };
 
-        scoreList.appendChild(userScore);
-        };
+ localStorage.setItem("theScores", JSON.stringify(theScores));
+ console.log(theScores);
+
+
    
 
 
