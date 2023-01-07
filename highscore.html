@@ -13,7 +13,7 @@
 <h1>
     Highscores
 </h1>
-<div id="initial-box">
+<div class="initial-box">
 
 </div>
 
@@ -26,14 +26,17 @@ const score = urlParams.get("score");
 console.log(score);
 
 
-displayHighScore();
+
+
+
+    displayHighScore();
 
 
 
 
 function displayHighScore (){
 var initials = prompt("Please enter your initials.");
-localStorage.setItem("initials", initials);
+var getInitials= localStorage.setItem("initials", initials);
 localStorage.setItem("score", score);
 var userList = localStorage.getItem("userList");
 var scorePage = document.getElementById("#initial-box");
@@ -43,8 +46,8 @@ var scorePageEl = document.createElement("div");
  };
 
 
-if (userList === undefined || userList === null) {
-        userList = {[initials]: score};
+if (getUserList === undefined || getUserList === null) {
+        userList = {getInitials, score};
         localStorage.setItem("userList", JSON.stringify(userList));
         document.getElementById("#initial-box").textContent = userList
         
@@ -59,9 +62,12 @@ if (userList === undefined || userList === null) {
 
 </script>
 
-</html>
 
 
-<!-- promt:enter INitials -->
-<!-- save initials to local storage and score.  -->
-<!-- retireve from local storgae and display the scores using a for loop.  -->
+
+
+
+
+
+
+
