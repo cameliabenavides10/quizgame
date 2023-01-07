@@ -45,10 +45,16 @@ var userInitials = localStorage.getItem("userInitials");
  console.log(theScores);
 
 
-   
+var scoreToPage = localStorage.getItem("theScores");
+console.log(scoreToPage);
 
 
+function renderToScreen(){
+document.getElementById("initial-box").textContent= scoreToPage;
 
+
+};
+renderToScreen();
 </script>
 
 
