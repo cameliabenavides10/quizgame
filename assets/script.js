@@ -30,9 +30,21 @@ var quizContent = [
         correctAnswer: "blue"
     },
     {
-        question: "what is my name?",
-        answers: ["Abby", "poop", "waaaa", "ugh"],
-        correctAnswer: "Abby"
+        question: "What does H20 make?",
+        answers: ["water", "dirt", "air", "clouds"],
+        correctAnswer: "water"
+
+    },
+    {
+        question: "What color is not in the rainbow?",
+        answers: ["red", "blue", "black", "yellow"],
+        correctAnswer: "black"
+
+    },
+    {
+        question: "Whats at the end of the rainbow",
+        answers: ["pot of gold", "a dog", "a cup", "dogs"],
+        correctAnswer: "pot of gold"
 
     }
 ]
