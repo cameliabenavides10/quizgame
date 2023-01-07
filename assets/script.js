@@ -83,23 +83,54 @@ displayQuestions();
 
 
 
-
-
+// works to count down timer
 function setTime() {
     timerInterval = setInterval(function() {
+        // here it is decreasing the time by one
         secsLong--;
+        // it is adding the word timer and the secsLong var
         timer.innerHTML= "Timer: " + secsLong
+    //    if the timer reaches 0 the quiz is over and you are redirected to the highscore page
         if(secsLong === 0) {
             // Stops execution of action at set interval
          clearInterval(timerInterval);
+        //  the high score redirection page
          location.href= "highscore.html?score=" + secsLong
         };
    }, 1000);
  };
+//  calling the function 
  setTime();
 
 
 
+
+
+
+
+
+ var initials = prompt("Please enter your initials.");
+ var getInitials= localStorage.setItem("initials", initials);
+ localStorage.setItem("score", score);
+ var userList = localStorage.getItem("userList");
+
+
+
+ function saveScore() {
+    var playerName = document.getElementById("initial-box").value;
+    //localStorage.setItem(playerName, secondsLeft);
+    var userList = localStorage.getItem("userList");
+    if (userList === undefined || userList === null) {  
+        userList = {[playerName]: secsLong};
+        localStorage.setItem("userList", JSON.stringify(userList));
+    }
+    else {
+        var userListJSON = JSON.parse(userList);
+        userListJSON[playerName] = secsLong;
+        localStorage.setItem("userList", JSON.stringify(userListJSON));
+    }
+    
+ }
 //  promt:enter INitials
 // save initials to local storage and score. 
 // retireve from local storgae and display the scores using a for loop. 

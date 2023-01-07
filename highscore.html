@@ -13,7 +13,7 @@
 <h1>
     Highscores
 </h1>
-<div class="initial-box">
+<div id="initial-box">
 
 </div>
 
@@ -27,38 +27,25 @@ console.log(score);
 
 
 
-
-
-    displayHighScore();
-
-
-
-
-function displayHighScore (){
 var initials = prompt("Please enter your initials.");
-var getInitials= localStorage.setItem("initials", initials);
-localStorage.setItem("score", score);
-var userList = localStorage.getItem("userList");
-var scorePage = document.getElementById("#initial-box");
-var scorePageEl = document.createElement("div");
-
-// localStorage.setItem("userList", JSON.stringify(userList));
- };
+ localStorage.setItem("initials", initials);
+ localStorage.setItem("score", score);
+ var userList = localStorage.getItem("userList");
+ console.log(userList);
 
 
-if (getUserList === undefined || getUserList === null) {
-        userList = {getInitials, score};
-        localStorage.setItem("userList", JSON.stringify(userList));
-        document.getElementById("#initial-box").textContent = userList
+var scoreList = document.getElementById("initial-box");
+        var userListJSON = JSON.parse(localStorage.getItem("userList"));
+        for (var property in userListJSON) {
         
-    }
-    else {
-        var userListJSON = JSON.parse(userList);
-        userListJSON[initials] = score;
-        localStorage.setItem("userList", JSON.stringify(userListJSON));
-    }
-    var getUserList = localStorage.getItem('userList');
-    console.log(getUserList);
+        var userScore = document.createElement("div");
+        userScore.textContent =  property + ": " + userListJSON[property];
+
+        scoreList.appendChild(userScore);
+        };
+   
+
+
 
 </script>
 
