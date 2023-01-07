@@ -52,7 +52,7 @@ var quizContent = [
 
 
 
-
+// get the questions to display on the screen for user
 function displayQuestions() {
     var questions = document.querySelector(".menu");
     var questionsEl = document.createElement("h1");
@@ -61,7 +61,7 @@ function displayQuestions() {
     questionsEl.textContent = quizContent[currentQuestion].question;
     questions.append(questionsEl);
 
-    // for loop to get the answers from the array into the document 
+    // for loop to get the answers from the array into the document and get docking seconds if wrong
     for (var i = 0; i < quizContent[currentQuestion].answers.length; i++) {
         var indAnswers = (quizContent[currentQuestion].answers[i]);
         console.log(indAnswers);
