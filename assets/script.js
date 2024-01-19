@@ -1,5 +1,6 @@
 var score = document.querySelector(".score");
 var scoreEl = document.createElement("a");
+scoreEl.href = "./highscore.html";
 scoreEl.textContent = "View Highscores";
 score.append(scoreEl);
 
