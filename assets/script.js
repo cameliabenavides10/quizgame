@@ -64,15 +64,15 @@ function displayQuestions() {
     // for loop to get the answers from the array into the document and get docking seconds if wrong
     for (var i = 0; i < quizContent[currentQuestion].answers.length; i++) {
         var indAnswers = (quizContent[currentQuestion].answers[i]);
-        console.log(indAnswers);
+       
         var answer = document.querySelector(".menu");
         var answerEl = document.createElement("li");
         answerEl.textContent = indAnswers;
         answerEl.setAttribute("type", "button");
         answerEl.setAttribute("Style", "border: 1px solid; max-width: 30%; margin: 5px auto; border-radius: 5px");
         answerEl.addEventListener("click", function (event) {
-            console.log(indAnswers);
-            console.log((quizContent[currentQuestion].correctAnswer));
+            
+            
             if ((event.target.textContent) === (quizContent[currentQuestion].correctAnswer)) {
                 alert("Correct Answer!")
             } else {
