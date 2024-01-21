@@ -80,15 +80,14 @@ function displayQuestions() {
                 secsLong -= 10;
                 alert("Wrong Answer!");
             }
-
-
+            
             if (currentQuestion < quizContent.length - 1) {
                 currentQuestion++;
                 displayQuestions();
             } else {
-
+                // calling prompt to save initials to local storage
                 askName();
-
+                // after initials are saved will relocate to new window displaying high scores
                 location.href = "highscore.html?score=" + secsLong
             }
         })
