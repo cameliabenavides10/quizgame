@@ -30,24 +30,24 @@ var quizContent = [
         answers: ["blue", "green", "purple", "yellow"],
         correctAnswer: "blue"
     },
-    {
-        question: "What does H20 make?",
-        answers: ["water", "dirt", "air", "clouds"],
-        correctAnswer: "water"
+    // {
+    //     question: "What does H20 make?",
+    //     answers: ["water", "dirt", "air", "clouds"],
+    //     correctAnswer: "water"
 
-    },
-    {
-        question: "What color is not in the rainbow?",
-        answers: ["red", "blue", "black", "yellow"],
-        correctAnswer: "black"
+    // },
+    // {
+    //     question: "What color is not in the rainbow?",
+    //     answers: ["red", "blue", "black", "yellow"],
+    //     correctAnswer: "black"
 
-    },
-    {
-        question: "Whats at the end of the rainbow",
-        answers: ["pot of gold", "a dog", "a cup", "dogs"],
-        correctAnswer: "pot of gold"
+    // },
+    // {
+    //     question: "Whats at the end of the rainbow",
+    //     answers: ["pot of gold", "a dog", "a cup", "dogs"],
+    //     correctAnswer: "pot of gold"
 
-    }
+    // }
 ]
 
 
@@ -65,15 +65,15 @@ function displayQuestions() {
     // for loop to get the answers from the array into the document and get docking seconds if wrong
     for (var i = 0; i < quizContent[currentQuestion].answers.length; i++) {
         var indAnswers = (quizContent[currentQuestion].answers[i]);
-       
+
         var answer = document.querySelector(".menu");
         var answerEl = document.createElement("li");
         answerEl.textContent = indAnswers;
         answerEl.setAttribute("type", "button");
         answerEl.setAttribute("Style", "border: 1px solid; max-width: 30%; margin: 5px auto; border-radius: 5px");
         answerEl.addEventListener("click", function (event) {
-            
-            
+
+
             if ((event.target.textContent) === (quizContent[currentQuestion].correctAnswer)) {
                 alert("Correct Answer!")
             } else {
@@ -82,11 +82,14 @@ function displayQuestions() {
             }
 
 
-            if (currentQuestion < quizContent.length-1) {
+            if (currentQuestion < quizContent.length - 1) {
                 currentQuestion++;
                 displayQuestions();
-            } else{
-                location.href= "highscore.html?score=" + secsLong
+            } else {
+
+                askName();
+
+                location.href = "highscore.html?score=" + secsLong
             }
         })
         answer.appendChild(answerEl);
@@ -96,24 +99,33 @@ displayQuestions();
 
 
 
+
+
+// functino to prompt for name at the end of the quiz but not on the highscore page has to be at end of last question for quiz 
+function askName() {
+    var userName = prompt("Please enter user Initials");
+    localStorage.setItem("userInitials", userName);
+}
+
+
 // works to count down timer
 function setTime() {
-    timerInterval = setInterval(function() {
+    timerInterval = setInterval(function () {
         // here it is decreasing the time by one
         secsLong--;
         // it is adding the word timer and the secsLong var
-        timer.innerHTML= "Timer: " + secsLong
-    //    if the timer reaches 0 the quiz is over and you are redirected to the highscore page
-        if(secsLong === 0) {
+        timer.innerHTML = "Timer: " + secsLong
+        //    if the timer reaches 0 the quiz is over and you are redirected to the highscore page
+        if (secsLong === 0) {
             // Stops execution of action at set interval
-         clearInterval(timerInterval);
-        //  the high score redirection page
-         location.href= "highscore.html?score=" + secsLong
+            clearInterval(timerInterval);
+            //  the high score redirection page
+            location.href = "highscore.html?score=" + secsLong
         };
-   }, 1000);
- };
+    }, 1000);
+};
 //  calling the function 
- setTime();
+setTime();
 
 
 
@@ -124,16 +136,16 @@ function setTime() {
 
 
 
- const urlParams = new URLSearchParams(window.location.search);
- let userInitials = urlParams.get("userInitials");
+const urlParams = new URLSearchParams(window.location.search);
+let userInitials = urlParams.get("userInitials");
 
 
- function saveScore() {
+function saveScore() {
     var playerName = document.getElementById("initial-box").value;
     // localStorage.setItem(playerName, secondsLeft);
     var userList = localStorage.getItem("userList");
-    if (userList === undefined || userList === null) {  
-        userList = [{name: playerName, score: secsLong}];
+    if (userList === undefined || userList === null) {
+        userList = [{ name: playerName, score: secsLong }];
         localStorage.setItem("userList", JSON.stringify(userList));
     }
     else {
@@ -141,5 +153,5 @@ function setTime() {
         userListJSON[playerName] = secsLong;
         localStorage.setItem("userList", JSON.stringify(userListJSON));
     }
-    
- }
+
+}
