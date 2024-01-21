@@ -80,7 +80,7 @@ function displayQuestions() {
                 secsLong -= 10;
                 alert("Wrong Answer!");
             }
-            
+
             if (currentQuestion < quizContent.length - 1) {
                 currentQuestion++;
                 displayQuestions();
@@ -103,7 +103,20 @@ displayQuestions();
 // functino to prompt for name at the end of the quiz but not on the highscore page has to be at end of last question for quiz 
 function askName() {
     var userName = prompt("Please enter user Initials");
-    localStorage.setItem("userInitials", userName);
+
+
+    // Retrieve the stored scores from localStorage
+    var storedScores = localStorage.getItem("userList");
+  
+   // If scores are found, parse as JSON; otherwise, initialize as an empty array
+   var scoresArray = storedScores ? JSON.parse(storedScores) : [];
+
+   // Add the new score to the array
+   scoresArray.push({ initials: userName, score: secsLong });
+
+    // Store the updated scores back in localStorage
+    localStorage.setItem("userList", JSON.stringify(scoresArray));
+
 }
 
 
