@@ -16,6 +16,9 @@
 <div id="initial-box">
 
 </div>
+<div id="score-box">
+
+</div>
 <div>
     <a href="./index.html" class="Start"> Replay </a>
 </div>
@@ -29,32 +32,59 @@ const score = urlParams.get("score");
 
 console.log(score);
 
-// getting and setting the initials from local storage
-var userInitials = localStorage.getItem("userInitials");
+// Retrieve the stored scores from localStorage
+var storedScores = localStorage.getItem("userList");
+// If scores are found, parse as JSON; otherwise, initialize as an empty array
+var scoresArray = storedScores ? JSON.parse(storedScores) : [];
+// Sort the scores in descending order based on the score value
+scoresArray.sort((a, b) => b.score - a.score);
+// Display the top 5 scores
+for (let i = 0; i < Math.min(5, scoresArray.length); i++) {
+    var scoreEntry = scoresArray[i];
+    console.log(scoreEntry.initials, scoreEntry.score);
+    // Display or append the scores to the high score page as needed
+}
 
 
-    // getting and storing the score from local storage
- localStorage.setItem("score", score);
- var userList = localStorage.getItem("userList");
- console.log(userInitials);
 
 
- var theScores ={
-    initials: userInitials,
-    scores: score
- };
-
- localStorage.setItem("theScores", JSON.stringify(theScores));
- console.log(theScores);
 
 
-var scoreToPage = localStorage.getItem("theScores");
-console.log(scoreToPage);
+
+
+
+
+
+
+
+
+
+// // getting and setting the initials from local storage
+// var userInitials = localStorage.getItem("userInitials");
+
+
+//     // getting and storing the score from local storage
+//  localStorage.setItem("score", score);
+//  var userList = localStorage.getItem("userList");
+//  console.log(userInitials);
+
+
+//  var theScores ={
+//     initials: userInitials,
+//     scores: score
+//  };
+
+//  localStorage.setItem("theScores", JSON.stringify(theScores));
+//  console.log(theScores);
+
+
+// var scoreToPage = localStorage.getItem("theScores");
+// console.log(scoreToPage);
 
 
 function renderToScreen(){
-document.getElementById("initial-box").textContent= scoreToPage;
-
+document.getElementById("initial-box").textContent= scoreEntry.initials;
+document.getElementById("score-box").textContent= scoreEntry.score;
 
 };
 // calling function 
