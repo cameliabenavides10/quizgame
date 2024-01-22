@@ -30,24 +30,24 @@ var quizContent = [
         answers: ["blue", "green", "purple", "yellow"],
         correctAnswer: "blue"
     },
-    // {
-    //     question: "What does H20 make?",
-    //     answers: ["water", "dirt", "air", "clouds"],
-    //     correctAnswer: "water"
+    {
+        question: "What does H20 make?",
+        answers: ["water", "dirt", "air", "clouds"],
+        correctAnswer: "water"
 
-    // },
-    // {
-    //     question: "What color is not in the rainbow?",
-    //     answers: ["red", "blue", "black", "yellow"],
-    //     correctAnswer: "black"
+    },
+    {
+        question: "What color is not in the rainbow?",
+        answers: ["red", "blue", "black", "yellow"],
+        correctAnswer: "black"
 
-    // },
-    // {
-    //     question: "Whats at the end of the rainbow",
-    //     answers: ["pot of gold", "a dog", "a cup", "dogs"],
-    //     correctAnswer: "pot of gold"
+    },
+    {
+        question: "Whats at the end of the rainbow",
+        answers: ["pot of gold", "a dog", "a cup", "dogs"],
+        correctAnswer: "pot of gold"
 
-    // }
+    }
 ]
 
 

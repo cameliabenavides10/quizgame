@@ -39,9 +39,9 @@
     var scoresArray = storedScores ? JSON.parse(storedScores) : [];
     // Sort the scores in descending order based on the score value
     scoresArray.sort((a, b) => b.score - a.score);
-    // Display the top 5 scores
+    // Display the top 10 scores
     for (let i = 0; i < Math.min(10, scoresArray.length); i++) {
-
+    // create array variable 
         var scoreEntry = scoresArray[i];
         console.log(scoreEntry.initials, scoreEntry.score);
     }
